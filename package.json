@@ -1,0 +1,15 @@
+{
+  "name": "prompt-wiki",
+  "version": "1.0.0",
+  "description": "프롬프트 위키 — 1,000+ 한국어 프롬프트 카탈로그",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
