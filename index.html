@@ -27708,34 +27708,19 @@ animateCount($('statCat'), CATEGORIES.length-1);
 })();
 
 // === 방문자 카운터 ===
+// 브라우저별 localStorage 기반. 서버 집계가 아니라 이 브라우저의 방문 횟수만 센다.
 (function visitCounter(){
-  const KEY = 'pw_visit_session';
   const STORE_KEY = 'pw_visit_count';
-  const sessionKey = KEY + '_' + new Date().toDateString();
+  const sessionKey = 'pw_visit_session_' + new Date().toDateString();
   const isNewVisit = !sessionStorage.getItem(sessionKey);
   if (isNewVisit) sessionStorage.setItem(sessionKey, '1');
 
-  // 1차: counterapi.dev 무료 공용 카운터
-  const NS = 'prompt-wiki-kr-2026';
-  const KEY2 = 'visits';
-  const url = isNewVisit
-    ? `https://api.counterapi.dev/v1/${NS}/${KEY2}/up`
-    : `https://api.counterapi.dev/v1/${NS}/${KEY2}/`;
-
-  fetch(url, { method:'GET' })
-    .then(r=>r.ok ? r.json() : Promise.reject())
-    .then(data=>{
-      const n = data.count || data.value || 0;
-      localStorage.setItem(STORE_KEY, n);
-      animateCount($('visitCount'), n);
-    })
-    .catch(()=>{
-      // 2차 폴백: localStorage 기반
-      let n = parseInt(localStorage.getItem(STORE_KEY) || '12480', 10);
-      if (isNewVisit) n += 1;
-      localStorage.setItem(STORE_KEY, n);
-      animateCount($('visitCount'), n);
-    });
+  let n = 12480;
+  try {
+    n = parseInt(localStorage.getItem(STORE_KEY) || '12480', 10) || 12480;
+    if (isNewVisit) { n += 1; localStorage.setItem(STORE_KEY, n); }
+  } catch (e) { /* 저장소 접근 불가 시 기본값 사용 */ }
+  animateCount($('visitCount'), n);
 })();
 </script>
 </body>
