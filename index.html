@@ -79,7 +79,14 @@
   .hero-checks li{list-style:none;font-size:12.5px;line-height:1.5;color:var(--text-2);padding-left:17px;position:relative}
   .hero-checks li::before{content:'';position:absolute;left:0;top:6px;width:7px;height:7px;border-radius:2px;background:var(--gradient)}
   .hero-checks b{display:block;color:var(--text);font-weight:700;font-size:12.5px}
-  .hero-card-foot{margin-top:13px;padding-top:11px;border-top:1px solid var(--border);font-size:10.5px;line-height:1.5;color:var(--text-3)}
+  .hero-src{margin-top:22px;padding-top:16px;border-top:1px solid var(--border)}
+  .hero-src-head{font-size:11.5px;font-weight:800;color:var(--text-3);letter-spacing:.02em;text-transform:none}
+  .hero-src-list{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+  .hero-src-list li{list-style:none}
+  .hero-src-list a{display:flex;align-items:center;gap:7px;padding:6px 12px 6px 7px;background:var(--panel);border:1px solid var(--border);border-radius:999px;font-size:12px;line-height:1.3;color:var(--text-2);text-decoration:none;transition:border-color .15s,color .15s}
+  .hero-src-list a:hover{color:var(--text);border-color:var(--accent)}
+  .src-org{flex:none;font-size:10px;font-weight:800;color:var(--text-3);background:var(--bg-2);border-radius:999px;padding:2px 7px;transition:color .15s}
+  .hero-src-list a:hover .src-org{color:var(--accent)}
   .hero-stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
   .stat{padding:14px 18px;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:14px;min-width:140px}
   .stat .num{font-size:22px;font-weight:800;letter-spacing:-.4px}
@@ -305,6 +312,17 @@
       <div class="stat"><div class="num" id="statEx">0</div><div class="lbl">예제 제공</div></div>
       <div class="stat"><div class="num">⌘C</div><div class="lbl">원클릭 복사</div></div>
     </div>
+
+    <div class="hero-src">
+      <div class="hero-src-head">프롬프트 생성 기준</div>
+      <ul class="hero-src-list">
+        <li><a href="https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api" target="_blank" rel="noopener"><span class="src-org">OpenAI</span>프롬프트 엔지니어링 모범 사례</a></li>
+        <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener"><span class="src-org">Anthropic</span>프롬프트 엔지니어링 개요</a></li>
+        <li><a href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener"><span class="src-org">Google</span>Gemini 프롬프팅 전략</a></li>
+        <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-engineering" target="_blank" rel="noopener"><span class="src-org">Microsoft</span>Azure OpenAI 프롬프트 엔지니어링</a></li>
+        <li><a href="https://help.openai.com/en/articles/4936848-how-do-i-create-a-good-prompt-for-an-ai-model" target="_blank" rel="noopener"><span class="src-org">OpenAI</span>좋은 프롬프트 작성법</a></li>
+      </ul>
+    </div>
   </div>
 
   <aside class="hero-card">
@@ -317,7 +335,6 @@
       <li><b>예시</b>원하는 결과를 하나 보여준다</li>
       <li><b>불확실성</b>모르면 지어내지 말라고 명시</li>
     </ul>
-    <div class="hero-card-foot">OpenAI · Anthropic · Google · Microsoft 프롬프트 엔지니어링 가이드 종합</div>
   </aside>
 </section>
 
@@ -375,7 +392,7 @@
 
 <footer class="site-footer">
   <div class="foot-wrap">
-    <div class="foot-copy">Copyright 2026 ⓒ All Rights Reserved. | 박정원(한국외국어대학교) <span class="foot-ver">v1.0.0</span></div>
+    <div class="foot-copy">Copyright 2026 ⓒ All Rights Reserved. | 박정원(한국외국어대학교) <span class="foot-ver">v1.1.0</span></div>
     <div class="foot-links">
       <span class="foot-link"><span class="foot-ico">✉️</span>AI 뉴스레터 빌더 · <a href="https://www.kletter.kr" target="_blank" rel="noopener">www.kletter.kr</a></span>
       <span class="foot-sep" aria-hidden="true">·</span>
