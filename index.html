@@ -272,7 +272,7 @@
   <div class="topbar-inner">
     <div class="logo">
       <div class="logo-mark">P</div>
-      <div>AI 프롬프트 위키<span class="logo-ver">v1.1.0</span><small>Prompt Wiki KR</small></div>
+      <div>AI 프롬프트 위키<span class="logo-ver" id="verBadge">v1.2.0</span><small>Prompt Wiki KR</small></div>
     </div>
     <div class="search-wrap">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -47077,6 +47077,12 @@ animateCount($('statTotal'), PROMPTS.length);
 animateCount($('statCat'), CATEGORIES.length-1);
 animateCount($('statEx'), PROMPTS.filter(hasExample).length);
 $('heroTotal').textContent = PROMPTS.length.toLocaleString();
+
+// === 버전 ===
+// 고칠 때마다 올린다. 프롬프트나 카테고리가 늘고 줄면 minor,
+// 화면·문구·버그 수정은 patch, 구조를 뒤집으면 major.
+const VERSION = 'v1.2.0';
+$('verBadge').textContent = VERSION;
 
 // === 업데이트 날짜 ===
 // 마지막 콘텐츠 업데이트일. 프롬프트를 고칠 때 이 값도 함께 갱신한다.
