@@ -255,7 +255,7 @@
     <div class="topbar-actions">
       <span class="pill pill-date" title="마지막 업데이트">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <b id="updateDate">2026.05.07</b>
+        <b id="updateDate">2026.08.29</b>
       </span>
       <span class="pill pill-visit" title="방문자 수">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -27700,12 +27700,9 @@ animateCount($('statTotal'), PROMPTS.length);
 animateCount($('statCat'), CATEGORIES.length-1);
 
 // === 업데이트 날짜 ===
-(function setDate(){
-  const d = new Date();
-  const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
-  // 마지막 콘텐츠 업데이트일 (수동 갱신)
-  $('updateDate').textContent = '2026.05.07';
-})();
+// 마지막 콘텐츠 업데이트일. 프롬프트를 고칠 때 이 값도 함께 갱신한다.
+const LAST_UPDATED = '2026.08.29';
+$('updateDate').textContent = LAST_UPDATED;
 
 // === 방문자 카운터 ===
 // 브라우저별 localStorage 기반. 서버 집계가 아니라 이 브라우저의 방문 횟수만 센다.
