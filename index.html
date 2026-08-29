@@ -61,9 +61,25 @@
   .pill-visit svg{color:var(--primary-2)}
 
   /* HERO */
-  .hero{max-width:1400px;margin:0 auto;padding:36px 24px 8px}
-  .hero h1{font-size:34px;font-weight:800;letter-spacing:-.5px;background:var(--gradient);background-clip:text;-webkit-background-clip:text;color:transparent;display:inline-block}
+  .hero{max-width:1400px;margin:0 auto;padding:36px 24px 8px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
+  .hero-main{min-width:0}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid var(--border);background:var(--panel);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--text-2);letter-spacing:.01em}
+  .hero-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(34,197,94,.16)}
+  .hero h1{margin-top:12px;font-size:34px;font-weight:800;letter-spacing:-.5px;background:var(--gradient);background-clip:text;-webkit-background-clip:text;color:transparent;display:inline-block}
   .hero p{margin-top:10px;color:var(--text-2);font-size:15px;line-height:1.7;max-width:760px}
+  .hero-lede b{color:var(--text);font-weight:700}
+  .hero-how{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .hero-how-step{display:flex;align-items:center;gap:8px;padding:8px 13px 8px 8px;background:var(--panel);border:1px solid var(--border);border-radius:999px;font-size:12.5px;color:var(--text-2)}
+  .hero-num{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--gradient);color:#fff;font-size:11px;font-weight:800;flex:none}
+  .hero-code{background:var(--bg-2);border:1px solid var(--border);padding:1px 6px;border-radius:5px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11.5px}
+  .hero-ex{color:var(--green);font-weight:700}
+  .hero-card{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:16px;padding:16px 18px}
+  .hero-card-head{font-size:12.5px;font-weight:800;color:var(--text);letter-spacing:.01em}
+  .hero-checks{margin-top:11px;display:flex;flex-direction:column;gap:9px}
+  .hero-checks li{list-style:none;font-size:12.5px;line-height:1.5;color:var(--text-2);padding-left:17px;position:relative}
+  .hero-checks li::before{content:'';position:absolute;left:0;top:6px;width:7px;height:7px;border-radius:2px;background:var(--gradient)}
+  .hero-checks b{display:block;color:var(--text);font-weight:700;font-size:12.5px}
+  .hero-card-foot{margin-top:13px;padding-top:11px;border-top:1px solid var(--border);font-size:10.5px;line-height:1.5;color:var(--text-3)}
   .hero-stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
   .stat{padding:14px 18px;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);border-radius:14px;min-width:140px}
   .stat .num{font-size:22px;font-weight:800;letter-spacing:-.4px}
@@ -196,9 +212,10 @@
     .logo small{display:none}
     .search-wrap{order:3;flex:1 1 100%;max-width:none}
     .topbar-actions{order:2;margin-left:auto}
-    .hero{padding:24px 16px 4px}
+    .hero{padding:24px 16px 4px;grid-template-columns:1fr;gap:18px}
     .hero h1{font-size:26px}
     .hero p{font-size:13.5px}
+    .hero-how-step{font-size:12px}
     .hero-stats{gap:8px}
     .stat{padding:10px 14px;min-width:100px}
     .stat .num{font-size:18px}
@@ -216,6 +233,8 @@
     .search-wrap svg{left:12px}
     .hero h1{font-size:22px}
     .hero p{font-size:12.5px;line-height:1.6}
+    .hero-how{flex-direction:column;gap:6px}
+    .hero-how-step{width:100%}
     .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
     .stat{min-width:0;padding:10px 12px}
     .grid{grid-template-columns:1fr;gap:10px}
@@ -267,14 +286,39 @@
 </div>
 
 <section class="hero">
-  <h1>AI 프롬프트 위키</h1>
-  <p>Claude · ChatGPT · Gemini 등 모든 AI 모델에서 그대로 붙여넣어 쓸 수 있는 실무형 프롬프트를 카테고리별로 정리했습니다.<br/>대괄호 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;color:var(--accent);font-family:'JetBrains Mono'">[ ... ]</code> 부분만 본인 상황에 맞게 바꿔서 사용하세요.</p>
-  <div class="hero-stats">
-    <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">전체 프롬프트</div></div>
-    <div class="stat"><div class="num" id="statCat">0</div><div class="lbl">카테고리</div></div>
-    <div class="stat"><div class="num">100%</div><div class="lbl">한국어 최적화</div></div>
-    <div class="stat"><div class="num">⌘C</div><div class="lbl">원클릭 복사</div></div>
+  <div class="hero-main">
+    <span class="hero-eyebrow">
+      <span class="hero-dot"></span>실무형 한국어 프롬프트 카탈로그
+    </span>
+    <h1>AI 프롬프트 위키</h1>
+    <p class="hero-lede">Claude · ChatGPT · Gemini 어디에나 그대로 붙여넣어 쓰는 프롬프트를 <b id="heroTotal">1,038</b>개 모았습니다.<br/>모든 프롬프트는 역할·맥락·작업 단계·출력 형식·예시·불확실성 처리를 갖춘 같은 틀로 작성돼 있습니다.</p>
+
+    <div class="hero-how">
+      <div class="hero-how-step"><span class="hero-num">1</span>카테고리나 검색으로 프롬프트를 고른다</div>
+      <div class="hero-how-step"><span class="hero-num">2</span><code class="hero-code">[ ... ]</code> 부분을 내 상황으로 바꾼다</div>
+      <div class="hero-how-step"><span class="hero-num">3</span>막히면 <b class="hero-ex">예제</b> 버튼으로 채워진 견본을 본다</div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">전체 프롬프트</div></div>
+      <div class="stat"><div class="num" id="statCat">0</div><div class="lbl">카테고리</div></div>
+      <div class="stat"><div class="num" id="statEx">0</div><div class="lbl">예제 제공</div></div>
+      <div class="stat"><div class="num">⌘C</div><div class="lbl">원클릭 복사</div></div>
+    </div>
   </div>
+
+  <aside class="hero-card">
+    <div class="hero-card-head">좋은 프롬프트의 6요소</div>
+    <ul class="hero-checks">
+      <li><b>역할</b>누구로서 답할지 한 문장으로 지정</li>
+      <li><b>맥락</b>대상·상황·제약을 함께 준다</li>
+      <li><b>작업 단계</b>할 일을 번호로 쪼갠다</li>
+      <li><b>출력 형식</b>길이·구조·형식을 못 박는다</li>
+      <li><b>예시</b>원하는 결과를 하나 보여준다</li>
+      <li><b>불확실성</b>모르면 지어내지 말라고 명시</li>
+    </ul>
+    <div class="hero-card-foot">OpenAI · Anthropic · Google · Microsoft 프롬프트 엔지니어링 가이드 종합</div>
+  </aside>
 </section>
 
 <main class="main">
@@ -27698,6 +27742,8 @@ function animateCount(el, target){
 }
 animateCount($('statTotal'), PROMPTS.length);
 animateCount($('statCat'), CATEGORIES.length-1);
+animateCount($('statEx'), PROMPTS.filter(hasExample).length);
+$('heroTotal').textContent = PROMPTS.length.toLocaleString();
 
 // === 업데이트 날짜 ===
 // 마지막 콘텐츠 업데이트일. 프롬프트를 고칠 때 이 값도 함께 갱신한다.
