@@ -48,6 +48,7 @@
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.3px}
   .logo-mark{width:32px;height:32px;border-radius:9px;background:var(--gradient);display:grid;place-items:center;color:#fff;font-weight:800;box-shadow:0 8px 24px rgba(124,92,255,.4)}
   .logo small{color:var(--text-3);font-weight:500;font-size:12px;margin-left:6px}
+  .logo-ver{margin-left:8px;padding:2px 7px;border-radius:999px;background:var(--bg-2);border:1px solid var(--border);color:var(--text-3);font-size:10.5px;font-weight:700;letter-spacing:.02em;vertical-align:middle}
   .search-wrap{flex:1;max-width:560px;position:relative}
   .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-3)}
   #search{width:100%;padding:12px 14px 12px 42px;background:var(--panel);border:1px solid var(--border);color:var(--text);border-radius:12px;font-size:14px;outline:none;transition:.2s}
@@ -200,7 +201,6 @@
   .foot-list a{color:var(--accent-2);font-weight:600;border-bottom:1px dashed transparent;transition:.15s}
   .foot-list a:hover{color:var(--accent);border-bottom-color:var(--accent)}
   .foot-bottom{text-align:center;color:var(--text-3);font-size:12px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--border)}
-  .foot-ver{color:var(--red);font-weight:700;letter-spacing:.02em}
   .foot-copy{text-align:center;color:var(--text-2);font-size:13px;line-height:1.6}
   .foot-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;margin-top:12px;padding-top:14px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text-2)}
   .foot-link{display:inline-flex;align-items:center;gap:8px}
@@ -272,7 +272,7 @@
   <div class="topbar-inner">
     <div class="logo">
       <div class="logo-mark">P</div>
-      <div>AI 프롬프트 위키<small>Prompt Wiki KR</small></div>
+      <div>AI 프롬프트 위키<span class="logo-ver">v1.1.0</span><small>Prompt Wiki KR</small></div>
     </div>
     <div class="search-wrap">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -392,7 +392,7 @@
 
 <footer class="site-footer">
   <div class="foot-wrap">
-    <div class="foot-copy">Copyright 2026 ⓒ All Rights Reserved. | 박정원(한국외국어대학교) <span class="foot-ver">v1.1.0</span></div>
+    <div class="foot-copy">Copyright 2026 ⓒ All Rights Reserved. | 박정원(한국외국어대학교)</div>
     <div class="foot-links">
       <span class="foot-link"><span class="foot-ico">✉️</span>AI 뉴스레터 빌더 · <a href="https://www.kletter.kr" target="_blank" rel="noopener">www.kletter.kr</a></span>
       <span class="foot-sep" aria-hidden="true">·</span>
