@@ -165,7 +165,13 @@
   .foot-list a:hover{color:var(--accent);border-bottom-color:var(--accent)}
   .foot-bottom{text-align:center;color:var(--text-3);font-size:12px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--border)}
   .foot-ver{color:var(--red);font-weight:700;letter-spacing:.02em}
-  @media(max-width:600px){.foot-card{padding:22px}.foot-name{font-size:17px}.foot-name-sub{display:block;margin-left:0;margin-top:2px}}
+  .foot-copy{text-align:center;color:var(--text-2);font-size:13px;line-height:1.6}
+  .foot-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;margin-top:12px;padding-top:14px;border-top:1px dashed var(--border);font-size:13.5px;color:var(--text-2)}
+  .foot-link{display:inline-flex;align-items:center;gap:8px}
+  .foot-sep{color:var(--text-3)}
+  .foot-links a{color:var(--accent-2);font-weight:600;border-bottom:1px dashed transparent;transition:.15s}
+  .foot-links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  @media(max-width:600px){.foot-card{padding:22px}.foot-name{font-size:17px}.foot-name-sub{display:block;margin-left:0;margin-top:2px}.foot-sep{display:none}.foot-links{flex-direction:column;gap:10px}}
 
   /* MOBILE RESPONSIVE */
   @media(max-width:1100px){
@@ -307,22 +313,12 @@
 
 <footer class="site-footer">
   <div class="foot-wrap">
-    <div class="foot-card">
-      <div class="foot-head">
-        <div class="foot-avatar">박</div>
-        <div>
-          <div class="foot-name">박정원 <span class="foot-name-sub">朴正元 · Park Jeong Weon</span></div>
-          <div class="foot-title">교수 · Professor</div>
-        </div>
-      </div>
-      <ul class="foot-list">
-        <li><span class="foot-ico">🏛️</span><span>한국외국어대학교 중국학대학 중국언어문화학부</span></li>
-        <li><span class="foot-ico">🌐</span><span>K-AI 교육네트워크 · <a href="https://k-ai.it.kr/" target="_blank" rel="noopener">k-ai.it.kr</a></span></li>
-        <li><span class="foot-ico">✉️</span><span><a href="mailto:park9626@hanmail.net">park9626@hanmail.net</a></span></li>
-        <li><span class="foot-ico">📱</span><span>APP · <a href="https://kletter.kr" target="_blank" rel="noopener">kletter.kr</a> / <a href="https://kteacher.kr" target="_blank" rel="noopener">kteacher.kr</a></span></li>
-      </ul>
+    <div class="foot-copy">Copyright 2026 ⓒ All Rights Reserved. | 박정원(한국외국어대학교) <span class="foot-ver">v1.0.0</span></div>
+    <div class="foot-links">
+      <span class="foot-link"><span class="foot-ico">✉️</span>AI 뉴스레터 빌더 · <a href="https://www.kletter.kr" target="_blank" rel="noopener">www.kletter.kr</a></span>
+      <span class="foot-sep" aria-hidden="true">·</span>
+      <span class="foot-link"><span class="foot-ico">🎓</span>AI 강의콘텐츠 빌더 · <a href="https://www.kteacher.kr" target="_blank" rel="noopener">www.kteacher.kr</a></span>
     </div>
-    <div class="foot-bottom">© 2026 AI 프롬프트 위키 · Prompt Wiki KR · 한국어 사용자 기준 큐레이션 · <span class="foot-ver">v.1.0.0</span></div>
   </div>
 </footer>
 
